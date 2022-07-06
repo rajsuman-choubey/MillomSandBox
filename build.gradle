@@ -10,6 +10,14 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.glassfish.grizzly:grizzly-http-server:3.0.1'
+    implementation 'org.glassfish.jersey.inject:jersey-hk2:3.0.4'
+    implementation 'org.glassfish.jersey.containers:jersey-container-grizzly2-http:3.0.4'
+    implementation 'ch.qos.logback:logback-classic:1.2.11'
+    implementation 'ch.qos.logback:logback-core:1.2.11'
+    implementation 'org.slf4j:slf4j-api:1.7.36'
+    implementation 'jakarta.activation:jakarta.activation-api:2.1.0'
+    implementation 'org.glassfish.jaxb:jaxb-bom:4.0.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }

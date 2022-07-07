@@ -12,13 +12,9 @@ public class MyApp {
 
   // Starts Grizzly HTTP server
   public static HttpServer startServer() {
-
-    // scan packages
     final ResourceConfig config = new ResourceConfig();
 
     config.register(MyResource.class);
-
-    // config.register(AutoScanFeature.class);
 
     config.register(new AbstractBinder(){
       @Override
@@ -54,8 +50,6 @@ public class MyApp {
       }));
 
       System.out.println(String.format("Application started.%nStop the application using CTRL+C"));
-
-      // block and wait shut down signal, like CTRL+C
       Thread.currentThread().join();
 
     } catch (InterruptedException ex) {

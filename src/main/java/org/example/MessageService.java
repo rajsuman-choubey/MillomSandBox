@@ -2,6 +2,7 @@ package org.example;
 
 public interface MessageService {
   public String getHello() ;
-  int curiosityDateDateConversion(String date);
+  int curiosityDateConversion(String date);
 
+  String getTodayDate();
 }

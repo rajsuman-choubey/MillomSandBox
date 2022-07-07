@@ -32,13 +32,14 @@ public class MyResource {
         + " class, get method : gethelloHk2()");
     return msgService.getHello();
   }
+//Earth date to Curiosity sol conversion endpoint
   @GET
   @Path("/sol")
   @Produces(MediaType.TEXT_PLAIN)
-  public int curiosityDateDateConversion(@QueryParam("date") String date)
+  public int curiosityDateConversion(@QueryParam("date") String date)
   {
     logger.info("Example log from "+ MyResource.class.getSimpleName() +" class, get method : convertCuriositySol()");
-    return msgService.curiosityDateDateConversion(date);
+    return msgService.curiosityDateConversion(date);
   }
 
 }

@@ -1,4 +1,5 @@
 package org.example;
+
 import java.net.URI;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -8,6 +9,7 @@ import org.glassfish.jersey.internal.inject.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
 
 public class MyApp {
+
   public static final String BASE_URI = "http://localhost:8080/";
 
   // Starts Grizzly HTTP server
@@ -16,7 +18,7 @@ public class MyApp {
 
     config.register(MyResource.class);
 
-    config.register(new AbstractBinder(){
+    config.register(new AbstractBinder() {
       @Override
       protected void configure() {
         // map this service to this contract
@@ -30,6 +32,7 @@ public class MyApp {
     return httpServer;
 
   }
+
   public static void main(String[] args) {
 
     try {

@@ -1,12 +1,15 @@
 package org.example;
+
 import static jakarta.ws.rs.core.Response.status;
+
 import jakarta.ws.rs.core.Response;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
-public class MessageServiceImpl implements MessageService{
+
+public class MessageServiceImpl implements MessageService {
 
   // format for ISO 8601
   private static final DateTimeFormatter ISO_FORMATE = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -24,13 +27,13 @@ public class MessageServiceImpl implements MessageService{
       LocalDate earthDate = LocalDate.parse(date, ISO_FORMATE);
       float diff_In_Days = ChronoUnit.DAYS.between(CURIOSITY_LANDING_DATE, earthDate);
       return Math.round(diff_In_Days * 86400 / 88775.245);
-    }
-    catch (DateTimeParseException e) {
+    } catch (DateTimeParseException e) {
 
-      throw new RuntimeException("Date is not in ISO 8601 format",e);
+      throw new RuntimeException("Date is not in ISO 8601 format", e);
     }
   }
-  public String getTodayDate(){
+
+  public String getTodayDate() {
     String date = ISO_FORMATE.format(LocalDateTime.now());
     return date;
   }

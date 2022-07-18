@@ -32,7 +32,6 @@ public class MyApp {
     return httpServer;
 
   }
-
   public static void main(String[] args) {
 
     try {

@@ -51,9 +51,9 @@ public class MyResource {
       System.out.println(date);
     }
     try {
-      logger.info("request is successfull with successfull " + Status.OK);
+      logger.info("request is successfull " + Status.OK);
       return Response.status(200).entity(
-              "request is successfull with successfull " + msgService.curiosityDateConversion(date))
+              "request is successfull  " + msgService.curiosityDateConversion(date))
           .build();
 
     } catch (Exception e) {

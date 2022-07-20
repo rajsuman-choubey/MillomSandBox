@@ -42,7 +42,7 @@ public class MyApp {
       // add jvm shutdown hook
       Runtime.getRuntime().addShutdownHook(new Thread(() -> {
         try {
-         // System.out.println("Shutting down the application...");
+          // System.out.println("Shutting down the application...");
 
           httpServer.shutdownNow();
 

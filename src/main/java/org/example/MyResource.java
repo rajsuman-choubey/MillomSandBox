@@ -27,7 +27,6 @@ public class MyResource {
   public String getHelloHk2() {
     //Logs request with SLF4J.
    logger.info(String.format("Example log from %s class, get method :gethelloHk2()%s", MyResource.class.getSimpleName()));
-    //   + " class, get method : gethelloHk2()");
     return msgService.getHello();
   }
 
@@ -44,19 +43,14 @@ public class MyResource {
 
       logger.info(String.format("request is successfull %s class,get method : curiosityDateConversion() %s",
           Status.OK, MyResource.class.getSimpleName()));
-       logger.info("request is successfull" + Status.OK + MyResource.class.getSimpleName()
-      + " class, get method : curiosityDateConversion()");
-
       return Response.status(Status.OK)
           .entity("request is successfull " + msgService.curiosityDateConversion(date))
           .build();
 
     } catch (Exception e) {
-      //logger.info(String.format("request is fail %s class,get method : curiosityDateConversion() %s" ,
-         // Status.BAD_REQUEST, MyResource.class.getSimpleName()));
+      logger.info(String.format("request is fail %s class,get method : curiosityDateConversion() %s" ,
+         Status.BAD_REQUEST, MyResource.class.getSimpleName()));
 
-       logger.info("request is fail" + Status.BAD_REQUEST + MyResource.class.getSimpleName()
-        + " class, get method : curiosityDateConversion()");
 
       return Response.status(Status.BAD_REQUEST)
           .entity("incorrectly formatted date").build();

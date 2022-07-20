@@ -17,26 +17,17 @@ import org.slf4j.LoggerFactory;
 public class MyResource {
 
   private static final Logger logger
-      = (Logger) LoggerFactory.getLogger(MyApp.class);
+      = (Logger) LoggerFactory.getLogger(MyResource.class);
   @Inject
   private MessageService msgService;
-
-  @GET
-  @Produces(MediaType.TEXT_PLAIN)
-  public String hello() {
-    //Logs every request with SLF4J.
-    logger.info(
-        "Example log from " + MyResource.class.getSimpleName() + " class, get method: hello()");
-    return "hello";
-  }
 
   @Path("/healthz")
   @GET
   @Produces(MediaType.TEXT_PLAIN)
   public String getHelloHk2() {
     //Logs request with SLF4J.
-    logger.info("Example log from " + MyResource.class.getSimpleName()
-        + " class, get method : gethelloHk2()");
+   logger.info(String.format("Example log from %s class, get method :gethelloHk2()%s", MyResource.class.getSimpleName()));
+    //   + " class, get method : gethelloHk2()");
     return msgService.getHello();
   }
 
@@ -48,18 +39,27 @@ public class MyResource {
     if (date == null) {
       // assign current date
       date = msgService.getTodayDate();
-      System.out.println(date);
     }
     try {
-      logger.info("request is successfull " + Status.OK);
-      return Response.status(200).entity(
-              "request is successfull  " + msgService.curiosityDateConversion(date))
+
+      logger.info(String.format("request is successfull %s class,get method : curiosityDateConversion() %s",
+          Status.OK, MyResource.class.getSimpleName()));
+       logger.info("request is successfull" + Status.OK + MyResource.class.getSimpleName()
+      + " class, get method : curiosityDateConversion()");
+
+      return Response.status(Status.OK)
+          .entity("request is successfull " + msgService.curiosityDateConversion(date))
           .build();
 
     } catch (Exception e) {
-      logger.info("request is fail " + Status.BAD_REQUEST);
-      return Response.status(400)
-          .entity("incorrectly formatted date" + msgService.curiosityDateConversion(date)).build();
+      //logger.info(String.format("request is fail %s class,get method : curiosityDateConversion() %s" ,
+         // Status.BAD_REQUEST, MyResource.class.getSimpleName()));
+
+       logger.info("request is fail" + Status.BAD_REQUEST + MyResource.class.getSimpleName()
+        + " class, get method : curiosityDateConversion()");
+
+      return Response.status(Status.BAD_REQUEST)
+          .entity("incorrectly formatted date").build();
     }
   }
 }

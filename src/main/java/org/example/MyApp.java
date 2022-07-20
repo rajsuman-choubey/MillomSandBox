@@ -32,6 +32,7 @@ public class MyApp {
     return httpServer;
 
   }
+
   public static void main(String[] args) {
 
     try {
@@ -41,7 +42,7 @@ public class MyApp {
       // add jvm shutdown hook
       Runtime.getRuntime().addShutdownHook(new Thread(() -> {
         try {
-          System.out.println("Shutting down the application...");
+         // System.out.println("Shutting down the application...");
 
           httpServer.shutdownNow();
 
@@ -51,7 +52,6 @@ public class MyApp {
         }
       }));
 
-      System.out.println(String.format("Application started.%nStop the application using CTRL+C"));
       Thread.currentThread().join();
 
     } catch (InterruptedException ex) {

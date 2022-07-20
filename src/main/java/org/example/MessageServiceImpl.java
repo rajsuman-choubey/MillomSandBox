@@ -1,8 +1,5 @@
 package org.example;
 
-import static jakarta.ws.rs.core.Response.status;
-
-import jakarta.ws.rs.core.Response;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -34,7 +31,6 @@ public class MessageServiceImpl implements MessageService {
   }
 
   public String getTodayDate() {
-    String date = ISO_FORMATE.format(LocalDateTime.now());
-    return date;
+    return ISO_FORMATE.format(LocalDateTime.now());
   }
 }

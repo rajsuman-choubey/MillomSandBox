@@ -1,9 +1,8 @@
 package org.example;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.core.UriBuilder;
 import java.net.URI;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,27 +33,22 @@ class MyResourceTest {
   @Test
   @DisplayName("CONVERT EARTH DATE TO CURIOSITY SOL DATE")
   void testCuriosityDateConversion() {
-    Response response = Response.
-        status(Response.Status.OK)
-        .entity(msgServiceImpl.curiosityDateConversion("2022-06-15"))
-        .build();
-
     when(messageServiceMock.curiosityDateConversion("2022-06-15")).thenReturn(3504L);
-    response = myResource.curiosityDateConversion("2022-06-15");
-    assertEquals(response.getStatus(), 200);
-    assertEquals(response.getEntity(), 3504L);
+    Response response = myResource.curiosityDateConversion("2022-06-15");
+    assertEquals(response.getStatus(), Status.OK.getStatusCode());
+    assertEquals(response.getEntity(), "request is successfull 3504");
   }
 
   @Test
   void CuriosityDateConversionIfDateNull() {
     String date = msgServiceImpl.getTodayDate();
-    long actual = msgServiceImpl.curiosityDateConversion(date);
-
+    long days = msgServiceImpl.curiosityDateConversion(date);
+    String actual = "request is successfull "+ days;
     when(messageServiceMock.getTodayDate()).thenReturn(date);
-    when(messageServiceMock.curiosityDateConversion(date)).thenReturn(actual);
+    when(messageServiceMock.curiosityDateConversion(date)).thenReturn(days);
 
     Response response = myResource.curiosityDateConversion(null);
-    assertEquals(response.getStatus(), 200);
+    assertEquals(response.getStatus(), Status.OK.getStatusCode());
     assertEquals(response.getEntity(), actual);
   }
 
@@ -63,10 +57,9 @@ class MyResourceTest {
     String date = "2022-";
     when(messageServiceMock.curiosityDateConversion(date)).thenThrow(new RuntimeException());
     Response response = myResource.curiosityDateConversion(date);
-    assertEquals(response.getStatus(), 400);
-    assertEquals(response.getEntity(), null);
+    assertEquals(response.getStatus(), Status.BAD_REQUEST.getStatusCode());
+    assertEquals(response.getEntity(), "incorrectly formatted date");
   }
-
   private static URI getBaseURI(String path) {
     return UriBuilder.fromUri("http://localhost:8080/" + path).build();
   }

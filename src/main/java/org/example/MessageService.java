@@ -1,7 +1,12 @@
 package org.example;
 
-public interface MessageService {
-  public String getHello() ;
-  int curiosityDateDateConversion(String date);
+import jakarta.ws.rs.core.Response;
 
+public interface MessageService {
+
+  String getHello();
+
+  long curiosityDateConversion(String date);
+
+  public String getTodayDate();
 }

@@ -1,6 +1,11 @@
 .gradle
 /build/
 
+.DS_Store
+.idea/
+
+test-file.txt
+	gradle/.DS_Store
 # Ignore Gradle GUI config
 gradle-app.setting
 
@@ -12,3 +17,6 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
+
+test-file.txt
+testFile

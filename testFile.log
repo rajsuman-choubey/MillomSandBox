@@ -1,5 +1,0 @@
-127  [grizzly-http-server-0] INFO  org.example.MyApp - Example log from MyResource class, get method: hello()
-161  [grizzly-http-server-0] INFO  org.example.MyApp - Example log from MyResource class, get method: hello()
-42712 [grizzly-http-server-1] INFO  org.example.MyApp - Example log from MyResource class, get method : gethelloHk2()
-85   [grizzly-http-server-1] INFO  org.example.MyApp - Example log from MyResource class, get method : gethelloHk2()
-77   [grizzly-http-server-2] INFO  org.example.MyApp - Example log from MyResource class, get method : convertCuriositySol()

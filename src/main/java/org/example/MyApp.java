@@ -1,4 +1,5 @@
 package org.example;
+
 import java.net.URI;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -8,19 +9,16 @@ import org.glassfish.jersey.internal.inject.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
 
 public class MyApp {
+
   public static final String BASE_URI = "http://localhost:8080/";
 
   // Starts Grizzly HTTP server
   public static HttpServer startServer() {
-
-    // scan packages
     final ResourceConfig config = new ResourceConfig();
 
     config.register(MyResource.class);
 
-    // config.register(AutoScanFeature.class);
-
-    config.register(new AbstractBinder(){
+    config.register(new AbstractBinder() {
       @Override
       protected void configure() {
         // map this service to this contract
@@ -34,6 +32,7 @@ public class MyApp {
     return httpServer;
 
   }
+
   public static void main(String[] args) {
 
     try {
@@ -43,7 +42,7 @@ public class MyApp {
       // add jvm shutdown hook
       Runtime.getRuntime().addShutdownHook(new Thread(() -> {
         try {
-          System.out.println("Shutting down the application...");
+          // System.out.println("Shutting down the application...");
 
           httpServer.shutdownNow();
 
@@ -53,9 +52,6 @@ public class MyApp {
         }
       }));
 
-      System.out.println(String.format("Application started.%nStop the application using CTRL+C"));
-
-      // block and wait shut down signal, like CTRL+C
       Thread.currentThread().join();
 
     } catch (InterruptedException ex) {

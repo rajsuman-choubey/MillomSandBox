@@ -1,4 +1,4 @@
-package org.example;
+package millom.sandbox;
 
 import static jakarta.ws.rs.core.Response.status;
 

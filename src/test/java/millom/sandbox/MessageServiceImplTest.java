@@ -1,4 +1,4 @@
-package org.example;
+package millom.sandbox;
 
 import static org.junit.jupiter.api.Assertions.*;
 

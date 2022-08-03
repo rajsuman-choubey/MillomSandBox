@@ -1,4 +1,4 @@
-package org.example;
+package millom.sandbox;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

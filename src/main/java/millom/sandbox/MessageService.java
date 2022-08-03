@@ -1,4 +1,4 @@
-package org.example;
+package millom.sandbox;
 
 import jakarta.ws.rs.core.Response;
 

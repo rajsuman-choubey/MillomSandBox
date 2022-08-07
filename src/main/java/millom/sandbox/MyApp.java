@@ -1,4 +1,5 @@
 package millom.sandbox;
+
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import java.net.URI;
@@ -16,6 +17,7 @@ import org.glassfish.jersey.internal.inject.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
 import millom.sandbox.resource.NasaResource;
 import millom.sandbox.MyResource;
+
 public class MyApp {
 
   public static final String BASE_URI = "http://localhost:8080/";
@@ -30,7 +32,7 @@ public class MyApp {
     config.register(MyResource.class);
     config.register(NasaResource.class);
 
-    config.register(new AbstractBinder(){
+    config.register(new AbstractBinder() {
       @Override
       protected void configure() {
         bind(MessageServiceImpl.class).to(MessageService.class);
@@ -47,6 +49,7 @@ public class MyApp {
     return httpServer;
 
   }
+
   public static void main(String[] args) {
 
     try {
@@ -65,7 +68,8 @@ public class MyApp {
         }
       }));
 
-      System.out.println(String.format("Application started.%nStop the application using CTRL+C"));
+      System.out.println(
+          String.format("Application started and use CTRL+C to Stop the application"));
 
       // block and wait shut down signal, like CTRL+C
       Thread.currentThread().join();

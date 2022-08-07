@@ -1,25 +1,23 @@
 package millom.sandbox.pojo;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Sol {
-  @JsonProperty("id")
+
+
   private String id;
   @JsonProperty("terrestrial_date")
   private String terrestrialDate;
-  @JsonProperty("sol")
   private String sol;
-  @JsonProperty("ls")
   private String ls;
-  @JsonProperty("season")
   private String season;
   @JsonProperty("min_temp")
   private String minTemp;
 
   @JsonProperty("max_temp")
   private String maxTemp;
-  @JsonProperty("pressure")
   private String pressure;
   @JsonProperty("pressure_string")
   private String pressureString;
@@ -31,9 +29,7 @@ public class Sol {
   private String windDirection;
   @JsonProperty("atmo_opacity")
   private String atmoOpacity;
-  @JsonProperty("sunrise")
   private String sunrise;
-  @JsonProperty("sunset")
   private String sunset;
   @JsonProperty("local_uv_irradiance_index")
   private String localUvIrradianceIndex;
@@ -42,7 +38,7 @@ public class Sol {
   @JsonProperty("max_gts_temp")
   private String maxGtsTemp;
 
-  private Sol(){
+  private Sol() {
   }
 
   private Sol(SolBuilder solBuilder) {
@@ -137,7 +133,9 @@ public class Sol {
   public String getMaxGtsTemp() {
     return maxGtsTemp;
   }
-  public static class SolBuilder{
+
+  public static class SolBuilder {
+
     private String id;
     private String terrestrialDate;
     private String sol;
@@ -157,29 +155,95 @@ public class Sol {
     private String minGtsTemp;
     private String maxGtsTemp;
 
-    public SolBuilder(String id, String terrestrialDate, String sol, String ls, String season,
-        String minTemp, String maxTemp, String pressure, String pressureString, String absHumidity,
-        String windSpeed, String windDirection, String atmoOpacity, String sunrise, String sunset,
-        String localUvIrradianceIndex, String minGtsTemp, String maxGtsTemp) {
+    public SolBuilder(String id) {
       this.id = id;
-      this.terrestrialDate = terrestrialDate;
-      this.sol = sol;
-      this.ls = ls;
-      this.season = season;
-      this.minTemp = minTemp;
-      this.maxTemp = maxTemp;
-      this.pressure = pressure;
-      this.pressureString = pressureString;
-      this.absHumidity = absHumidity;
-      this.windSpeed = windSpeed;
-      this.windDirection = windDirection;
-      this.atmoOpacity = atmoOpacity;
-      this.sunrise = sunrise;
-      this.sunset = sunset;
-      this.localUvIrradianceIndex = localUvIrradianceIndex;
-      this.minGtsTemp = minGtsTemp;
-      this.maxGtsTemp = maxGtsTemp;
     }
+
+    public SolBuilder terrestrialDate(String terrestrialDate) {
+      this.terrestrialDate = terrestrialDate;
+      return this;
+    }
+
+    public SolBuilder sol(String sol) {
+      this.sol = sol;
+      return this;
+    }
+
+    public SolBuilder ls(String ls) {
+      this.ls = ls;
+      return this;
+    }
+
+    public SolBuilder season(String season) {
+      this.season = season;
+      return this;
+    }
+
+    public SolBuilder minTemp(String minTemp) {
+      this.minTemp = minTemp;
+      return this;
+    }
+
+    public SolBuilder maxTemp(String maxTemp) {
+      this.maxTemp = maxTemp;
+      return this;
+    }
+
+    public SolBuilder pressure(String pressure) {
+      this.pressure = pressure;
+      return this;
+    }
+
+    public SolBuilder absHumidity(String absHumidity) {
+      this.absHumidity = absHumidity;
+      return this;
+    }
+
+    public SolBuilder windSpeed(String windSpeed) {
+      this.windSpeed = windSpeed;
+      return this;
+    }
+
+    public SolBuilder pressureString(String pressureString) {
+      this.pressureString = pressureString;
+      return this;
+    }
+
+    public SolBuilder windDirection(String windDirection) {
+      this.windDirection = windDirection;
+      return this;
+    }
+
+    public SolBuilder atmoOpacity(String atmoOpacity) {
+      this.atmoOpacity = atmoOpacity;
+      return this;
+    }
+
+    public SolBuilder sunrise(String sunrise) {
+      this.sunrise = sunrise;
+      return this;
+    }
+
+    public SolBuilder sunset(String sunset) {
+      this.sunset = sunset;
+      return this;
+    }
+
+    public SolBuilder localUvIrradianceIndex(String localUvIrradianceIndex) {
+      this.localUvIrradianceIndex = localUvIrradianceIndex;
+      return this;
+    }
+
+    public SolBuilder minGtsTemp(String minGtsTemp) {
+      this.minGtsTemp = minGtsTemp;
+      return this;
+    }
+
+    public SolBuilder maxGtsTemp(String maxGtsTemp) {
+      this.maxGtsTemp = maxGtsTemp;
+      return this;
+    }
+
     public Sol build() {
       return new Sol(this);
     }

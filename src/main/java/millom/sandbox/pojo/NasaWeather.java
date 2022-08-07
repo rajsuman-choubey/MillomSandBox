@@ -1,19 +1,21 @@
- package millom.sandbox.pojo;
-import  com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+package millom.sandbox.pojo;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NasaWeather {
-  @JsonProperty("descriptions")
+
   private Descriptions descriptions;
-  @JsonProperty("soles")
   private List<Sol> soles;
-  private NasaWeather(){
+
+  private NasaWeather() {
   }
 
-  private NasaWeather(NasaWeatherBuilder nasaWeatherBuilder){
-    this.descriptions = nasaWeatherBuilder.descriptions;
-    this.soles = nasaWeatherBuilder.soles;
+  private NasaWeather(NasaWeatherBuilder nasaweatherBuilder) {
+    this.descriptions = nasaweatherBuilder.descriptions;
+    this.soles =  nasaweatherBuilder.soles;
   }
 
   public Descriptions getDescriptions() {
@@ -25,14 +27,21 @@ public class NasaWeather {
   }
 
   public static class NasaWeatherBuilder{
-    // builder code
+
     private Descriptions descriptions;
     private List<Sol> soles;
-    public NasaWeatherBuilder(Descriptions descriptions,  List<Sol> soles){
+
+    public NasaWeatherBuilder descriptions(Descriptions descriptions) {
       this.descriptions = descriptions;
-      this.soles = soles;
+      return this;
     }
-    public  NasaWeather build() {
+
+    public NasaWeatherBuilder sols(List<Sol> soles) {
+      this.soles = soles;
+      return this;
+    }
+
+    public NasaWeather build() {
       return new NasaWeather(this);
     }
   }

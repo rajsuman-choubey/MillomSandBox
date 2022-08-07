@@ -2,6 +2,7 @@ package millom.sandbox.mapper;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import java.io.IOException;
 import millom.sandbox.CustomException.InvalidWeatherException;
 import millom.sandbox.Utility.JsonUtility;

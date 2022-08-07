@@ -1,4 +1,5 @@
 package millom.sandbox.service;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -39,6 +40,7 @@ class NasaWeatherServiceTest {
     assertThat(response).isNotNull();
     assertThat(response.getSoles()).hasSize(2);
     assertThat(response.getDescriptions().getLsDescEn()).
-        isEqualTo("\n\t\t\t\tA Martian year lasts about two Earth's year, which is the time\n\t\t\t\tMars takes to orbit the Sun. Solar longitude is an angle that\n\t\t\t\tgives the position of Mars on its orbit.\t\t\t\t  \n\t\t\t");
+        isEqualTo(
+            "\n\t\t\t\tA Martian year lasts about two Earth's year, which is the time\n\t\t\t\tMars takes to orbit the Sun. Solar longitude is an angle that\n\t\t\t\tgives the position of Mars on its orbit.\t\t\t\t  \n\t\t\t");
   }
 }

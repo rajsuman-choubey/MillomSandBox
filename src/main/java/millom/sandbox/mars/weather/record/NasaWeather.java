@@ -4,28 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class NasaWeather {
+public record NasaWeather(Descriptions descriptions, List<Sol> soles) {
 
-  private Descriptions descriptions;
-  private List<Sol> soles;
-
-  private NasaWeather() {
-  }
-
-  private NasaWeather(NasaWeatherBuilder nasaweatherBuilder) {
-    this.descriptions = nasaweatherBuilder.descriptions;
-    this.soles =  nasaweatherBuilder.soles;
-  }
-
-  public Descriptions getDescriptions() {
-    return descriptions;
-  }
-
-  public List<Sol> getSoles() {
-    return soles;
-  }
-
-  public static class NasaWeatherBuilder{
+  public static class NasaWeatherBuilder {
 
     private Descriptions descriptions;
     private List<Sol> soles;
@@ -41,7 +22,7 @@ public class NasaWeather {
     }
 
     public NasaWeather build() {
-      return new NasaWeather(this);
+      return new NasaWeather(descriptions, soles);
     }
   }
 

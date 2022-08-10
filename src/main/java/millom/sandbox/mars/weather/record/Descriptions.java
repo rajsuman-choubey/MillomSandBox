@@ -176,14 +176,11 @@ public record Descriptions
 
     public Descriptions build() {
       return new Descriptions(disclaimerEn, disclaimerEs, solDescEn, solDescEs,
-          terrestrialDateDescEn, terrestrialDateDescEs, tempDescEn,
-          tempDescEs, pressureDescEn, pressureDescEs, absHumidityDescEn,
-          absHumidityDescEs, windDescEn, windDescEs, gtsTempDescEn,
-          gtsTempDescEs, localUvIrradianceIndexDescEn, localUvIrradianceIndexDescEs,
-          atmoOpacityDescEn, atmoOpacityDescEs, lsDescEn, lsDescEs,
-          seasonDescEn, seasonDescEs, sunriseSunsetDescEn,
-          sunriseSunsetDescEs
-      );
+          terrestrialDateDescEn, terrestrialDateDescEs, tempDescEn, tempDescEs, pressureDescEn,
+          pressureDescEs, absHumidityDescEn, absHumidityDescEs, windDescEn, windDescEs,
+          gtsTempDescEn, gtsTempDescEs, localUvIrradianceIndexDescEn, localUvIrradianceIndexDescEs,
+          atmoOpacityDescEn, atmoOpacityDescEs, lsDescEn, lsDescEs, seasonDescEn, seasonDescEs,
+          sunriseSunsetDescEn, sunriseSunsetDescEs);
 
     }
   }

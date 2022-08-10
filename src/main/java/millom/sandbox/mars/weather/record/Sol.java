@@ -7,9 +7,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Sol(String id, String terrestrialDate, String sol, String ls, String season,
                   String minTemp, String maxTemp, String pressure, String absHumidity,
-                  String pressureString,
-                  String wind_speed, String windDirection, String atmoOpacity, String sunrise,
-                  String sunset, String localUvIrradianceIndex,
+                  String pressureString, String wind_speed, String windDirection,
+                  String atmoOpacity, String sunrise, String sunset, String localUvIrradianceIndex,
                   String maxGtsTemp) {
 
   public static class Builder {
@@ -123,10 +122,9 @@ public record Sol(String id, String terrestrialDate, String sol, String ls, Stri
     }
 
     public Sol build() {
-      return new Sol(id,terrestrialDate, ls, season, minTemp, maxTemp, pressure,
-          pressureString, absHumidity, windSpeed, windDirection, atmoOpacity, sunrise, sunset,
-          localUvIrradianceIndex,
-          minGtsTemp, maxGtsTemp);
+      return new Sol(id, terrestrialDate, ls, season, minTemp, maxTemp, pressure, pressureString,
+          absHumidity, windSpeed, windDirection, atmoOpacity, sunrise, sunset,
+          localUvIrradianceIndex, minGtsTemp, maxGtsTemp);
     }
   }
 }

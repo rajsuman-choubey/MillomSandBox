@@ -36,7 +36,7 @@ class NasaResourceTest {
     verify(nasaWeatherServiceMock).getWeatherMapping("weather", "json", 1.0f, "msl");
     assertThat(response.getStatus()).isEqualTo(200);
     assertThat(response.getEntity()).isEqualTo(WeatherDataUtility.WEATHER_DATA);
-    Assertions.assertThat(((NasaWeather) response.getEntity()).getSoles()).hasSize(2);
+    Assertions.assertThat(((NasaWeather) response.getEntity()).soles()).hasSize(2);
   }
 
   @Test

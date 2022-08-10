@@ -1,4 +1,4 @@
-package org.example;
+package millom.sandbox.mars.weather;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 import jakarta.ws.rs.core.Response;

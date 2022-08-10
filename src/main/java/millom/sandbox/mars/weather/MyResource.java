@@ -1,4 +1,4 @@
-package org.example;
+package millom.sandbox.mars.weather;
 
 import static jakarta.ws.rs.core.Response.status;
 

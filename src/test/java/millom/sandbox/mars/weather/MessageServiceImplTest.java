@@ -1,4 +1,4 @@
-package org.example;
+package millom.sandbox.mars.weather;
 
 import static org.junit.jupiter.api.Assertions.*;
 

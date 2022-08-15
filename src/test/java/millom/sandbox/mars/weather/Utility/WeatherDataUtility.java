@@ -62,14 +62,14 @@ public class WeatherDataUtility {
           "\n\t\t\t\tUn d�a marciano (sol) dura aproximadamente 24 horas y 40 minutos. La duraci�n\n\t\t\t\tdel d�a y de la noche var�a a lo largo del a�o, como ocurre en la Tierra.\n\t\t\t")
       .build();
 
-  private static final Sol SOL1 = new Sol.Builder("3341").terrestrialDate("2022-07-01")
+  public static final Sol SOL1 = new Sol.Builder("3341").terrestrialDate("2022-07-01")
       .sol("3520")
       .ls("257").season("Month 9").minTemp("-72").maxTemp("-11").pressure("875")
       .pressureString("Higher").absHumidity("--").windSpeed("--")
       .windDirection("--").atmoOpacity("Sunny").sunrise("05:50").sunset("18:08")
       .localUvIrradianceIndex("High")
       .minGtsTemp("-85").maxGtsTemp("8").build();
-  private static final Sol SOL2 = new Sol.Builder("3344").terrestrialDate("2022-07-02")
+  public static final Sol SOL2 = new Sol.Builder("3344").terrestrialDate("2022-07-02")
       .sol("3521")
       .ls("258").season("Month 9").minTemp("-69").maxTemp("-14").pressure("882")
       .pressureString("Higher").absHumidity("--").windSpeed("--")

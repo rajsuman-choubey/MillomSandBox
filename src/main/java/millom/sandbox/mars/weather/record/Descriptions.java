@@ -1,11 +1,13 @@
 package millom.sandbox.mars.weather.record;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonSerialize
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Descriptions
+
     (String disclaimerEn, String disclaimerEs, String solDescEn, String solDescEs,
      String terrestrialDateDescEn, String terrestrialDateDescEs, String tempDescEn,
      String tempDescEs, String pressureDescEn, String pressureDescEs, String absHumidityDescEn,

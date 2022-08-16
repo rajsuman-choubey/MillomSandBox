@@ -1,15 +1,16 @@
 package millom.sandbox.mars.weather.Utility;
 import java.util.Arrays;
 import java.util.List;
-import millom.sandbox.mars.weather.record.Descriptions;
-import millom.sandbox.mars.weather.record.NasaWeather;
-import millom.sandbox.mars.weather.record.Sol;
+
+import pojos.Weather;
+import pojos.Sol;
+import pojos.Descriptions;
 
 public class WeatherDataUtility {
 
-  private static final Descriptions DESCRIPTIONS = new Descriptions.Builder().
+  private static final Descriptions DESCRIPTIONS = new Descriptions.DescriptionsBuilder().
       disclaimerEn(
-          "\t\n\t\t\tThe information contained into this file is provided by Centro de Astrobiologia\n\t\t\t(CAB) and is intended for outreach purposes only. Any other use is discouraged.\n\t\t\tCAB will take no responsibility for any result or publication made base on the \n\t\t\tcontent of this file. To access REMS scientific data, visit PDS at http://pds.nasa.gov.\n\n\t\t\tThe environmental magnitudes given into this file are obtained from the values\n\t\t\tread by the Rover Environmental Monitoring Station (REMS) on board the Mars Science\n\t\t\tLaboratory (MSL) rover on Mars. This file provides the environmental magnitudes at REMS\n\t\t\tlocation, so MSL rover influences those magnitudes (rover position,\n\t\t\trover temperature, rover orientation, rover shade, dust depositions on the rover, etc.)\n\n\t\t\tREMS does not take measurements continuously and it takes measurements at different\n\t\t\ttimes from one day to another. This fact has influence on the variation of the values\n\t\t\tgiven in this file from one day to another .\n\n\t\t\tFor different reasons (instrument maintenance, instrument calibration, instrument degradation, etc.), \n\t\t\tsome or all of the magnitudes in this file may not be available.\n\t\t")
+          "\t    \n\t\t\tThe information contained into this file is provided by Centro de Astrobiologia\n\t\t\t(CAB) and is intended for outreach purposes only. Any other use is discouraged.\n\t\t\tCAB will take no responsibility for any result or publication made base on the \n\t\t\tcontent of this file. To access REMS scientific data, visit PDS at http://pds.nasa.gov.\n\n\t\t\tThe environmental magnitudes given into this file are obtained from the values\n\t\t\tread by the Rover Environmental Monitoring Station (REMS) on board the Mars Science\n\t\t\tLaboratory (MSL) rover on Mars. This file provides the environmental magnitudes at REMS\n\t\t\tlocation, so MSL rover influences those magnitudes (rover position,\n\t\t\trover temperature, rover orientation, rover shade, dust depositions on the rover, etc.)\n\n\t\t\tREMS does not take measurements continuously and it takes measurements at different\n\t\t\ttimes from one day to another. This fact has influence on the variation of the values\n\t\t\tgiven in this file from one day to another .\n\n\t\t\tFor different reasons (instrument maintenance, instrument calibration, instrument degradation, etc.), \n\t\t\tsome or all of the magnitudes in this file may not be available.\n\t\t")
       .disclaimerEs(
           "\t\t\n\t\t\tLa informaci�n contenida en este fichero es facilitada por el Centro de Astrobiolog�a\n\t\t\t(CAB) �nicamente para fines divulgativos. Cualquier otro uso queda desaconsejado.\n\t\t\tCAB no se har� responsable de ning�n resultado o publicaci�n basados en el contenido \n\t\t\tde este fichero. Para acceder a los datos cient�ficos de REMS, visite el PDS en\n\t\t\thttp://pds.nasa.gov.\n\n\t\t\tLas magnitudes ambientales dadas es este fichero se obtienen de los valores le�dos\n\t\t\tpor la Estaci�n de Monitoreo Ambiental del Rover (REMS, por sus siglas en ingl�s)\n\t\t\tabordo del Laboratorio Cient�fico de Marte (MSL, por sus siglas en ingl�s). Este\n\t\t\tfichero da las magnitudes ambientales medidas por REMS, por lo que estas magnitudes \n\t\t\test�n influenciadas por el rover MSL (posici�n del rover, temperatura del\n\t\t\trover, orientaci�n del rover, sombras arrojadas por el rover, deposici�n de polvo sobre\n\t\t\tel rover, etc.)\n\n\t\t\tREMS no est� tomando medidas continuamente y, adem�s, toma medidas a diferentes horas \n\t\t\tde un d�a para otro. Estos hechos tienen influencia en la variaci�n de los valores\n\t\t\tdados en este fichero para d�as sucesivos.\n\n\t\t\tPor diferentes razones (mantenimiento del instrumento, calibraci�n del instrumento, degradaci�n\n\t\t\tdel instrumento, etc.) puede que alguna o todas las magnitudes de este fichero no est�n disponibles.\n\t\t")
       .solDescEn(
@@ -62,14 +63,14 @@ public class WeatherDataUtility {
           "\n\t\t\t\tUn d�a marciano (sol) dura aproximadamente 24 horas y 40 minutos. La duraci�n\n\t\t\t\tdel d�a y de la noche var�a a lo largo del a�o, como ocurre en la Tierra.\n\t\t\t")
       .build();
 
-  public static final Sol SOL1 = new Sol.Builder("3341").terrestrialDate("2022-07-01")
+  public static final Sol SOL1 = new Sol.SolBuilder("3341").terrestrialDate("2022-07-01")
       .sol("3520")
       .ls("257").season("Month 9").minTemp("-72").maxTemp("-11").pressure("875")
       .pressureString("Higher").absHumidity("--").windSpeed("--")
       .windDirection("--").atmoOpacity("Sunny").sunrise("05:50").sunset("18:08")
       .localUvIrradianceIndex("High")
       .minGtsTemp("-85").maxGtsTemp("8").build();
-  public static final Sol SOL2 = new Sol.Builder("3344").terrestrialDate("2022-07-02")
+  public static final Sol SOL2 = new Sol.SolBuilder("3344").terrestrialDate("2022-07-02")
       .sol("3521")
       .ls("258").season("Month 9").minTemp("-69").maxTemp("-14").pressure("882")
       .pressureString("Higher").absHumidity("--").windSpeed("--")
@@ -78,6 +79,6 @@ public class WeatherDataUtility {
       .minGtsTemp("-77").maxGtsTemp("8").build();
 
   private static final List<Sol> SOLS = Arrays.asList(SOL1, SOL2);
-  public static final NasaWeather WEATHER_DATA = new NasaWeather.NasaWeatherBuilder().sols(SOLS)
+  public static final Weather WEATHER_DATA = new Weather.WeatherBuilder().sols(SOLS)
       .descriptions(DESCRIPTIONS).build();
 }

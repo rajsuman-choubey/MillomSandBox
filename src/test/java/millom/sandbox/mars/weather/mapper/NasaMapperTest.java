@@ -9,7 +9,7 @@ import millom.sandbox.mars.weather.Utility.JsonUtility;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import pojos.Weather;
+import millom.sandbox.mars.weather.pojos.Weather;
 
 class NasaMapperTest {
 

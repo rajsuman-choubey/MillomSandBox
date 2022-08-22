@@ -2,7 +2,6 @@ package millom.sandbox.mars.weather.service;
 
 import static millom.sandbox.mars.weather.Utility.WeatherDataUtility.SOL1;
 import static millom.sandbox.mars.weather.Utility.WeatherDataUtility.SOL2;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.anyFloat;
 import static org.mockito.Matchers.anyString;
@@ -16,8 +15,8 @@ import millom.sandbox.mars.weather.CustomException.InvalidWeatherException;     
 import millom.sandbox.mars.weather.Utility.JsonUtility;
 import millom.sandbox.mars.weather.Utility.WeatherDataUtility;
 import millom.sandbox.mars.weather.mapper.NasaMapper;
-import pojos.Weather;
-import pojos.Sol;
+import millom.sandbox.mars.weather.pojos.Weather;
+import millom.sandbox.mars.weather.pojos.Sol;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -57,5 +56,7 @@ class NasaWeatherServiceTest {
     assertThat(response.getSoles().hashCode());
     assertThat(response.getDescriptions().getLsDescEn()).isEqualTo(
         "\n\t\t\t\tA Martian year lasts about two Earth's year, which is the time\n\t\t\t\tMars takes to orbit the Sun. Solar longitude is an angle that\n\t\t\t\tgives the position of Mars on its orbit.\t\t\t\t  \n\t\t\t");
-  }}
+  }
 
+
+  }

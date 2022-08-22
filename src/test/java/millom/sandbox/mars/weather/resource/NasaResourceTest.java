@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import pojos.Weather;
+import millom.sandbox.mars.weather.pojos.Weather;
 
 class NasaResourceTest {
 

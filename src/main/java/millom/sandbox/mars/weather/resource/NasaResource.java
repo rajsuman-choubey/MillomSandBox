@@ -14,7 +14,7 @@ import millom.sandbox.mars.weather.service.NasaWeatherService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import pojos.Sol;
+import millom.sandbox.mars.weather.pojos.Sol;
 
 
 @Path("/nasaapi")
@@ -61,6 +61,7 @@ public class NasaResource {
 
   @Path("/earthdate/marsweather/")
   @GET
+  @Produces(MediaType.APPLICATION_JSON)
   public Response getMarsWeatherForEarthDate(
       @QueryParam("feed") String feed,
       @QueryParam("feedtype") String feedType,
@@ -80,7 +81,7 @@ public class NasaResource {
           String.format("Task-4: Success message from Nasa API -- %s class and  get method: %s()",
               Thread.currentThread().getStackTrace()[1].getClassName(),
               Thread.currentThread().getStackTrace()[1].getMethodName()));
-      Sol sol = nasaWeatherService.getMarsWeatherForDate(feed, feedType, version, category, date);
+      Optional<Sol> sol = nasaWeatherService.getMarsWeatherForDate(feed, feedType, version, category, date);
       if (sol == null) {
         return Response.
             status(Status.NOT_FOUND)
@@ -102,8 +103,7 @@ public class NasaResource {
     }
   }
 
-  private Optional<Response> validate(String feed, String feedType, float version,
-      String category) {
+  private Optional<Response> validate(String feed, String feedType, float version, String dateStr) {
 
     if (feed == null || !feed.equals("weather")) {
       return getErrorResponse("feed");
@@ -113,11 +113,11 @@ public class NasaResource {
     }
     String versionToString = String.valueOf(version);
 
-    if (!versionToString.matches("^(\\d)*(?:\\.\\d)?$")) {
+    if (!versionToString.matches( dateStr) ){
       return getErrorResponse("version");
     }
-    if (category == null || category.length() < 2 || category.length() > 5) {
-      return getErrorResponse("category");
+    if ( dateStr == null ||  dateStr.length() < 2 ||  dateStr.length() > 5) {
+      return getErrorResponse("dateStr");
     }
     return Optional.empty();
   }

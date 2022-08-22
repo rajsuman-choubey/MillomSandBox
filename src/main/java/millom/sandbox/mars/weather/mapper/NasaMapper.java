@@ -1,12 +1,9 @@
 package millom.sandbox.mars.weather.mapper;
 
-import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import millom.sandbox.mars.weather.CustomException.InvalidWeatherException;
-import millom.sandbox.mars.weather.record.NasaWeather;
-import pojos.Weather;
+import millom.sandbox.mars.weather.pojos.Weather;
 
 public class NasaMapper {
 

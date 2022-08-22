@@ -1,4 +1,4 @@
-package pojos;
+package millom.sandbox.mars.weather.pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

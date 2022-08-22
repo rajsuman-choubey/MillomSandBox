@@ -2,9 +2,9 @@ package millom.sandbox.mars.weather.Utility;
 import java.util.Arrays;
 import java.util.List;
 
-import pojos.Weather;
-import pojos.Sol;
-import pojos.Descriptions;
+import millom.sandbox.mars.weather.pojos.Weather;
+import millom.sandbox.mars.weather.pojos.Sol;
+import millom.sandbox.mars.weather.pojos.Descriptions;
 
 public class WeatherDataUtility {
 

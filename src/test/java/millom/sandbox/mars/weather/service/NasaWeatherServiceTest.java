@@ -11,6 +11,7 @@ import static org.mockito.Mockito.when;
 
 import java.io.IOException;
 import java.util.stream.Stream;
+import millom.sandbox.mars.weather.CustomException.DateFormatIncorrectException;
 import millom.sandbox.mars.weather.CustomException.InvalidWeatherException;               //InvalidWeatherException;
 import millom.sandbox.mars.weather.Utility.JsonUtility;
 import millom.sandbox.mars.weather.Utility.WeatherDataUtility;
@@ -58,5 +59,4 @@ class NasaWeatherServiceTest {
         "\n\t\t\t\tA Martian year lasts about two Earth's year, which is the time\n\t\t\t\tMars takes to orbit the Sun. Solar longitude is an angle that\n\t\t\t\tgives the position of Mars on its orbit.\t\t\t\t  \n\t\t\t");
   }
 
-
-  }
+}

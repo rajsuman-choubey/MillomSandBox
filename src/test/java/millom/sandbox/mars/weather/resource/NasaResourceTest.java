@@ -53,32 +53,7 @@ class NasaResourceTest {
     assertThat(response.getStatus()).isEqualTo(400);
     assertThat(response.getEntity()).isNotNull();
   }
-  @Test
-  @DisplayName("GET MARS WEATHER FOR A GIVEN DATE")
-  void getMarsWeatherForEarthDate() throws InvalidWeatherException {
-    when(nasaWeatherServiceMock.getMarsWeatherForDate("weather", "json", 1.0f, "msl", "2022-07-01"))
-        .thenReturn(Optional.ofNullable(SOL1));
-    Response response = nasaResource.getMarsWeatherForEarthDate("weather", "json", 1.0f, "msl",
-        "2022-07-01");
-    assertThat(response.getStatus()).isEqualTo(200);
-    assertThat(response.getEntity()).isNotNull();
-    assertThat(response.getEntity()).extracting("season").isEqualTo("Month 9");
-    assertThat(response.getEntity()).extracting("ls").isEqualTo("257");
-    assertThat(response.getEntity()).extracting("minGtsTemp").isEqualTo("-85");
-  }
 
-  @Test
-  @DisplayName("GET MARS WEATHER FOR A GIVEN DATE, INPUT DATE IN NOT PRESENT IN THE MARS WEATHER LIST")
-  void getMarsWeatherForEarthDateNotPresent() throws InvalidWeatherException {
-    String date = "2011-07-01";
-    when(nasaWeatherServiceMock.getMarsWeatherForDate("weather", "json", 1.0f, "msl", date))
-        .thenReturn(null);
-    Response response = nasaResource.getMarsWeatherForEarthDate("weather", "json", 1.0f, "msl",
-        date);
-    assertThat(response.getStatus()).isEqualTo(404);
-    assertThat(response.getEntity()).
-        isEqualTo("The given date doesn't have any information in the mars weather report.");
-  }
 
   @Test
   @DisplayName("GET MARS WEATHER FOR A GIVEN DATE AND FEED MISMATCH")

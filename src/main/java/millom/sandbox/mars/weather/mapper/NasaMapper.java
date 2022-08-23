@@ -17,4 +17,5 @@ public class NasaMapper {
     } catch (IllegalArgumentException e) {
       throw new InvalidWeatherException("Content is null" + e.getMessage());
     }
-  }}
+  }
+}

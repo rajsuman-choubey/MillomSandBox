@@ -27,12 +27,6 @@ class NasaMapperTest {
         "\n\t\t\t\tA Martian year lasts about two Earth's year, which is the time\n\t\t\t\tMars takes to orbit the Sun. Solar longitude is an angle that\n\t\t\t\tgives the position of Mars on its orbit.\t\t\t\t  \n\t\t\t");
   }
 
-  @Test
-  void deserializeWeatherStringAsEmpty() {
-    assertThatThrownBy(() -> nasaMapper.deserializeWeather("")).isInstanceOf(
-            InvalidWeatherException.class)
-        .hasMessageStartingWith("Error while parsing the Json");
-  }
 
   @Test
   @DisplayName("TEST JSON STRING AS NULL")

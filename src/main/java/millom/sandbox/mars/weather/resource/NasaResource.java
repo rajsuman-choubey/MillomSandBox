@@ -73,10 +73,7 @@ public class NasaResource {
     if (errorResponse.isPresent()) {
       return errorResponse.get();
     }
-    Boolean isValidDate = nasaWeatherService.validateJavaDate(date);
-    /*if (date || date.length() == 0 || !date.matches("\\d{4}-\\d{2}-\\d{2}")) {
-      return getErrorResponse("date").get();
-  }*/
+
     if (!nasaWeatherService.validateJavaDate(date)) {
       return getErrorResponse("date").get();
     }

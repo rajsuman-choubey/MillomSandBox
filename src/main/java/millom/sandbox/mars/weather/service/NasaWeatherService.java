@@ -34,7 +34,7 @@ public class NasaWeatherService {
     /* Date is not 'null' */
     else {
 
-      SimpleDateFormat sdfrmt = new SimpleDateFormat("YYYY-MM-DD");
+      SimpleDateFormat sdfrmt = new SimpleDateFormat("yyyy-MM-dd");
       sdfrmt.setLenient(false);
 
       try {

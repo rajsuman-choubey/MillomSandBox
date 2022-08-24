@@ -15,10 +15,10 @@ class NasaMapperTest {
 
   private final static NasaMapper nasaMapper = new NasaMapper();
 
-  @Test
+  /*@Test
 
 
-  @DisplayName("TEST JSON STRING MAPPING CORRECT TO THE WEATHER OBJECT")
+  *//*@DisplayName("TEST JSON STRING MAPPING CORRECT TO THE WEATHER OBJECT")
   void deserializeWeather() throws InvalidWeatherException, IOException {
     NasaWeather response = nasaMapper.deserializeWeather(
         JsonUtility.getSampleResponse("response.json"));
@@ -26,8 +26,8 @@ class NasaMapperTest {
     assertThat(response.getSoles()).hasSize(2);
     assertThat(response.getDescriptions().lsDescEn()).isEqualTo(
         "\n\t\t\t\tA Martian year lasts about two Earth's year, which is the time\n\t\t\t\tMars takes to orbit the Sun. Solar longitude is an angle that\n\t\t\t\tgives the position of Mars on its orbit.\t\t\t\t  \n\t\t\t");
-  }
-
+  }*//*
+*/
   @Test
   void deserializeWeatherStringAsEmpty() {
     assertThatThrownBy(() -> nasaMapper.deserializeWeather("")).isInstanceOf(

@@ -5,8 +5,11 @@ import jakarta.ws.rs.client.ClientBuilder;
 import java.net.URI;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import millom.sandbox.mars.weather.service.JdkClintService;
+import millom.sandbox.mars.weather.mapper.JdkMapper;
 import millom.sandbox.mars.weather.mapper.NasaMapper;
 import millom.sandbox.mars.weather.resource.NasaResource;
+import millom.sandbox.mars.weather.service.JdkService;
 import millom.sandbox.mars.weather.service.NasaClientService;
 import millom.sandbox.mars.weather.service.NasaWeatherService;
 import org.glassfish.grizzly.http.server.HttpServer;
@@ -36,7 +39,11 @@ public class MyApp {
         bindAsContract(NasaMapper.class);
         bindAsContract(NasaClientService.class);
         bindAsContract(NasaWeatherService.class);
+        bindAsContract(JdkMapper.class);
+        bindAsContract(JdkClintService.class);
+        bindAsContract(JdkService.class);
       }
+
     });
 
     final HttpServer httpServer =

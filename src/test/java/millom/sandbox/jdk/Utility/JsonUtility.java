@@ -1,4 +1,9 @@
+<<<<<<< HEAD:src/test/java/millom/sandbox/jdk/Utility/JsonUtility.java
 package millom.sandbox.jdk.Utility;
+=======
+package millom.sandbox.mars.weather.Utility;
+
+>>>>>>> main:src/test/java/millom/sandbox/mars/weather/Utility/JsonUtility.java
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
